@@ -6,7 +6,7 @@ var chalk = require("chalk")
 
 var obj = {
 
-	'msg':'welcome to the JSON object page'
+	'msg':"this is the value, 'msg' was the key"
 }
 
 
