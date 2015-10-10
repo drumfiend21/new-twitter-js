@@ -4,11 +4,15 @@
   "description": "a foray into express and node via twitter clone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.3"
+    "chalk": "^1.1.1",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "nodemon": "^1.7.1"
   }
 }
