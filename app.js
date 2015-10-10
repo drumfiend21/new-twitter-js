@@ -6,7 +6,8 @@ var chalk = require("chalk")
 
 var obj = {
 
-	'msg':"this is the value, 'msg' was the key"
+	'msg':"this is the value, 'msg' is the key",
+	'success':"this life is going to be a success.  You will excel and God is with you.  No one wants you to fail.  You will succeed.  Just keep working hard.  You are loved and supported from above in your goals."
 }
 
 
@@ -22,6 +23,10 @@ app.get('/', function(req,res){
 
 app.get('/news', function(req,res){
 	res.send(obj.msg);
+})
+
+app.get('/success', function(req,res){
+	res.send("<h1>"+obj.success+"</h1>");
 })
 
 
