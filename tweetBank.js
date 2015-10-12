@@ -2,8 +2,9 @@ var _ = require("underscore");
 
 var data = [];
 
-var add = function(name, text){
-	data.push({ name: name, text: text});
+var add = function(name, text, id){
+	
+	data.push({ name: name, text: text, id: getId()});
 }
 
 var list = function(){
@@ -31,7 +32,19 @@ var getFakeTweet = function() {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
-for(var i=0; i<10; i++) {
-  module.exports.add( getFakeName(), getFakeTweet() );
+var count = 0;
+
+var getId = function(){
+	
+	count++;
+	return count;	
 }
 
+for(var i=0; i<10; i++) {
+  module.exports.add( getFakeName(), getFakeTweet());
+}
+
+module.exports.add("Michael O'brien", "yo dude!", getId())
+module.exports.add("Michael O'brien", "nice work!  nice wheels!", getId())
+
+console.log(data)

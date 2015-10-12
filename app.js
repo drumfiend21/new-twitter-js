@@ -12,6 +12,9 @@ app.set('view engine', 'html')
 
 swig.setDefaults({ cache: false }); //disable view cacheing for development
 
+var server = app.listen(3000);
+var io = require('socket.io')(server);
+
 //configure logging
 app.use(morgan(function (tokens, req, res) {
   return chalk.blue(tokens.method(req, res))
@@ -19,8 +22,9 @@ app.use(morgan(function (tokens, req, res) {
     + ' ' + chalk.red(tokens['response-time'](req, res))
 }))
 
+//mount statics
+app.use(express.static(__dirname + '/public'));
+
 // mount the router on the app
 var routes = require("./routes")
-app.use('/', routes)
-
-app.listen(3000);
+app.use('/', routes(io))
